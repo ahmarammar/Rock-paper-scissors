@@ -1,20 +1,21 @@
-import React from 'react'
-import Game from './GameArea/Game'
-import Header from './Header/Header'
-import Rules from './Rules'
+import React, { useState } from 'react'
+import GameView from './GameArea/GameView';
+import RulesView from "./Rules/RulesView"
 
 const MainView = () => {
-  return (
-    <div className='min-h-screen p-12 bg-gradient-to-b from-bgFirst to-bgSecond'>
-      <div className='max-w-xs mx-auto relative'>
-        <div className='flex flex-col'>
-          <Header />
-          <Game />
-        </div>
-        <Rules />
-      </div>
-    </div>
-  )
+
+  const [viewRules, setViewRules] = useState(false);
+
+  const showRules = () => {
+    if(viewRules === false){
+      setViewRules(true);
+    }else{
+      setViewRules(false);
+    }
+  }
+
+  return viewRules ? <RulesView showRules={showRules} /> : <GameView showRules={showRules} />
+  
 }
 
 export default MainView
