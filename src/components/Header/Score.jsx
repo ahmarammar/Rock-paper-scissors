@@ -1,10 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const Score = () => {
+const Score = ({winner}) => {
 
   const [points, setPoints] = useState(0);
 
-  
+  useEffect(() => {
+    if(winner !== ""){
+      if(winner === "user"){
+        setPoints(points+1);
+      }
+      if(winner === "house"){
+        setPoints(points-1);
+      }
+    }
+  }, [winner])
 
   return (
     <div className='bg-gray-200 rounded-lg p-2 w-24'>

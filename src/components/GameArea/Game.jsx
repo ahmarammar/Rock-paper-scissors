@@ -2,10 +2,14 @@ import React, { useState } from 'react'
 import GameStart from './GameStart';
 import WinOrLose from '../Results/WinOrLose';
 
-const Game = () => {
+const Game = ({manageScore, setWinner}) => {
   const [play, setPlay] = useState(false);
   const [userSelection, setUserSelection] = useState("");
   const [houseSelection, setHouseSelection] = useState("");
+
+  const handleScore = ( winner ) => {
+    manageScore(winner);
+  }
 
   const variety = ["rock","paper","scissors"];
 
@@ -17,7 +21,7 @@ const Game = () => {
   }
 
   return (
-    play ? <WinOrLose setPlay={setPlay} setUserSelection={setUserSelection} setHouseSelection={setHouseSelection} userPicked={userSelection} housePicked={houseSelection} /> : <GameStart setPlay={setPlay} setUserSelection={setUserSelection} variety={variety} generateHouseSelection={generateHouseSelection} />
+    play ? <WinOrLose setPlay={setPlay} setUserSelection={setUserSelection} setHouseSelection={setHouseSelection} userPicked={userSelection} housePicked={houseSelection} handleScore={handleScore} /> : <GameStart setPlay={setPlay} setUserSelection={setUserSelection} variety={variety} generateHouseSelection={generateHouseSelection} />
   )
 }
 

@@ -3,7 +3,7 @@ import rock from "../../assets/images/icon-rock.svg"
 import paper from "../../assets/images/icon-paper.svg"
 import scissors from "../../assets/images/icon-scissors.svg"
 
-const WinOrLose = ({userPicked, housePicked, setPlay, setUserSelection, setHouseSelection}) => {
+const WinOrLose = ({userPicked, housePicked, setPlay, setUserSelection, setHouseSelection, handleScore}) => {
 
   const [showHousePicked, setShowHousePicked] = useState(false);
   const [showWin, setShowWin] = useState(false);
@@ -11,7 +11,6 @@ const WinOrLose = ({userPicked, housePicked, setPlay, setUserSelection, setHouse
   const [showDraw, setShowDraw] = useState(false);
   
   const playAgain = () => {
-    
     setUserSelection("");
     setHouseSelection("");
     setShowHousePicked(false);
@@ -48,16 +47,21 @@ const WinOrLose = ({userPicked, housePicked, setPlay, setUserSelection, setHouse
   const whowins = (user, house) => {
     if(user === 'paper' && house === 'rock'){
       setShowWin(true);
+      handleScore("user");
     }else if(user === 'rock' && house === 'scissors'){
       setShowWin(true);
+      handleScore("user");
     }else if(user === 'scissors' && house === "paper"){
       setShowWin(true);
+      handleScore("user");
     }else{
       if(user === house){
         setShowDraw(true);
+        handleScore("draw");
         return;
       }
-      return setShowLose(true);
+      handleScore("house");
+      setShowLose(true);
     }
   }
 
