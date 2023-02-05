@@ -17,7 +17,7 @@ module.exports = {
         "scoreText2" : "hsl(229, 25%, 31%)",
         "scissorsRing" : "hsl(40, 84%, 53%)",
         "paperRing" : "hsl(230, 89%, 65%)",
-        "rockring" : "hsl(349, 70%, 56%)",
+        "rockRing" : "hsl(349, 70%, 56%)",
       },
     },
     screens: {

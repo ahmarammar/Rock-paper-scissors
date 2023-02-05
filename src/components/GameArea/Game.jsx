@@ -1,17 +1,23 @@
-import React from 'react'
-import triangle from "../../assets/images/bg-triangle.svg"
-import Rock from './PickItems/Rock'
-import Paper from './PickItems/Paper'
-import Scissors from './PickItems/Scissors'
+import React, { useState } from 'react'
+import GameStart from './GameStart';
+import WinOrLose from '../Results/WinOrLose';
 
 const Game = () => {
+  const [play, setPlay] = useState(false);
+  const [userSelection, setUserSelection] = useState("");
+  const [houseSelection, setHouseSelection] = useState("");
+
+  const variety = ["rock","paper","scissors"];
+
+  const generateHouseSelection = ( variety ) => {
+    let n = Math.floor(Math.random()*3);
+    setTimeout(() => {
+      setHouseSelection(variety[n]);
+    },2000)
+  }
+
   return (
-    <div className='flex justify-center mt-40 relative'>
-      <img src={triangle} alt="" className='h-56'/>
-        <Rock />
-        <Paper />
-        <Scissors />
-    </div>
+    play ? <WinOrLose setPlay={setPlay} setUserSelection={setUserSelection} setHouseSelection={setHouseSelection} userPicked={userSelection} housePicked={houseSelection} /> : <GameStart setPlay={setPlay} setUserSelection={setUserSelection} variety={variety} generateHouseSelection={generateHouseSelection} />
   )
 }
 

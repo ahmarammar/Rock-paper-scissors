@@ -2,10 +2,16 @@ import React from 'react'
 import rock from "../../../assets/images/icon-rock.svg"
 
 
-const Rock = () => {
+const Rock = ({ handlePlay, setUserSelection }) => {
+
+  const selectRock = () => {
+    setUserSelection("rock");
+    handlePlay();
+  }
+
   return (
-    <button>
-      <img src={rock} alt="" className='absolute top-36 right-28 bg-white p-6 w-24 h-24 rounded-full ring-[1rem] ring-rockring hover:scale-110 transition-transform' />
+    <button onClick={selectRock} value={"Rock"}>
+      <img src={rock} alt="" className='absolute top-36 right-28 bg-white p-6 w-24 h-24 rounded-full ring-[1rem] ring-rockRing hover:scale-110 transition-transform' />
     </button>
   )
 }

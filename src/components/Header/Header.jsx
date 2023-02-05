@@ -3,6 +3,7 @@ import Score from './Score'
 import logo from "../../assets/images/logo.svg"
 
 const Header = () => {
+
   return (
     <header className='p-6 border-4 border-headerOutline rounded-xl'>
       <div className='flex items-center justify-between'>
