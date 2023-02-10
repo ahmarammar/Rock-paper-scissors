@@ -1,2 +1,31 @@
-# rock-paper-scissors
-A classic game rock-paper-scissor, built using React JS. The app is easy to use and can be played by anyone. The repository includes all the necessary files to run the app locally. Feel free to use and modify the code as per your needs. The instructions for installation and usage can be found in the README file.
+Rock-Paper-Scissors
+A simple Rock-Paper-Scissors game built with React and Tailwind CSS.
+
+Introduction
+Rock-Paper-Scissors is a classic two-player game where each player chooses either rock, paper, or scissors. The game rules are:
+
+Rock beats scissors
+Scissors beats paper
+Paper beats rock
+
+This project is a React implementation of the Rock-Paper-Scissors game that allows a player to play against computer in the browser, using Tailwind CSS for styling. The project is built using the Vite build system and NPM for package management.
+
+Cloning the Repository
+To clone this repository, follow these steps:
+
+Open your terminal/command prompt and navigate to the directory where you want to clone the repository.
+
+Run the following command:
+
+git clone https://github.com/ahmarammar/rock-paper-scissors.git
+Once the repository has been cloned, navigate into the directory by running:
+
+cd rock-paper-scissors
+
+Install the necessary dependencies by running the following command:
+npm install
+
+Start the development server by running:
+npm run dev
+
+The game should now be running at http://localhost:5173/
