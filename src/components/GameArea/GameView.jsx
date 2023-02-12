@@ -12,8 +12,8 @@ const GameView = ({showRules}) => {
     showRules();
   }
 
-  const handleScore = (winner) => {
-    setWinner(winner);
+  const handleScore = (win) => {
+    setWinner(win);
   }
 
   return (
@@ -21,7 +21,7 @@ const GameView = ({showRules}) => {
         <div className='max-w-xs mx-auto relative'>
           <div className='flex flex-col'>
             <Header winner={winner} />
-            <Game manageScore={handleScore}/>
+            <Game manageScore={handleScore} setWinner={setWinner}/>
           </div>
           <RulesButton handleRules={handleRules} />
         </div>

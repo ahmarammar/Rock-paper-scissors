@@ -17,11 +17,11 @@ const Game = ({manageScore, setWinner}) => {
     let n = Math.floor(Math.random()*3);
     setTimeout(() => {
       setHouseSelection(variety[n]);
-    },2000)
+    },500)
   }
 
   return (
-    play ? <WinOrLose setPlay={setPlay} setUserSelection={setUserSelection} setHouseSelection={setHouseSelection} userPicked={userSelection} housePicked={houseSelection} handleScore={handleScore} /> : <GameStart setPlay={setPlay} setUserSelection={setUserSelection} variety={variety} generateHouseSelection={generateHouseSelection} />
+    play ? <WinOrLose setWinner={setWinner} setPlay={setPlay} setUserSelection={setUserSelection} setHouseSelection={setHouseSelection} userPicked={userSelection} housePicked={houseSelection} handleScore={handleScore} /> : <GameStart setPlay={setPlay} setUserSelection={setUserSelection} variety={variety} generateHouseSelection={generateHouseSelection} />
   )
 }
 

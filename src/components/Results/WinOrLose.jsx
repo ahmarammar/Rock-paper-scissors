@@ -3,7 +3,7 @@ import rock from "../../assets/images/icon-rock.svg"
 import paper from "../../assets/images/icon-paper.svg"
 import scissors from "../../assets/images/icon-scissors.svg"
 
-const WinOrLose = ({userPicked, housePicked, setPlay, setUserSelection, setHouseSelection, handleScore}) => {
+const WinOrLose = ({userPicked, housePicked, setPlay, setUserSelection, setHouseSelection, handleScore, setWinner}) => {
 
   const [showHousePicked, setShowHousePicked] = useState(false);
   const [showWin, setShowWin] = useState(false);
@@ -11,6 +11,7 @@ const WinOrLose = ({userPicked, housePicked, setPlay, setUserSelection, setHouse
   const [showDraw, setShowDraw] = useState(false);
   
   const playAgain = () => {
+    setWinner("");
     setUserSelection("");
     setHouseSelection("");
     setShowHousePicked(false);
@@ -41,7 +42,7 @@ const WinOrLose = ({userPicked, housePicked, setPlay, setUserSelection, setHouse
     setTimeout(() => {
       setShowHousePicked(true);
       whowins(userPicked, housePicked);
-    },1000)
+    },500)
   }
 
   const whowins = (user, house) => {
@@ -58,10 +59,10 @@ const WinOrLose = ({userPicked, housePicked, setPlay, setUserSelection, setHouse
       if(user === house){
         setShowDraw(true);
         handleScore("draw");
-        return;
+      }else{
+        handleScore("house");
+        setShowLose(true);
       }
-      handleScore("house");
-      setShowLose(true);
     }
   }
 
@@ -85,11 +86,11 @@ const WinOrLose = ({userPicked, housePicked, setPlay, setUserSelection, setHouse
       </div>
       <div className='flex flex-col gap-10 justify-center items-center'>
 
-        {showWin && <div className='absolute top-52 right-14 flex flex-col gap-10 items-center'><h2 className='uppercase text-gray-100 text-6xl font-extrabold tracking-wide'>You Win</h2><button className='text-scoreText2 bg-gray-50 py-3 px-12 text-2xl uppercase rounded-xl font-extrabold tracking-wider hover:opacity-80' onClick={playAgain}>play again</button></div>}
+        {showWin && <div className='absolute top-52 right-16 flex flex-col gap-10 items-center'><h2 className='uppercase text-gray-100 text-6xl font-extrabold tracking-wide'>You Win</h2><button className='text-scoreText2 bg-gray-50 py-3 px-12 text-2xl uppercase rounded-xl font-extrabold tracking-wider hover:opacity-80' onClick={playAgain}>play again</button></div>}
 
-        {showLose && <div className='absolute top-52 right-14 flex flex-col gap-10 items-center'><h2 className='uppercase text-gray-100 text-6xl font-extrabold tracking-wide'>You Lose</h2><button className='text-scoreText2 bg-gray-50 py-3 px-12 text-2xl uppercase rounded-xl font-extrabold tracking-wider hover:opacity-80' onClick={playAgain}>play again</button></div>}
+        {showLose && <div className='absolute top-52 right-16 flex flex-col gap-10 items-center'><h2 className='uppercase text-gray-100 text-6xl font-extrabold tracking-wide'>You Lose</h2><button className='text-scoreText2 bg-gray-50 py-3 px-12 text-2xl uppercase rounded-xl font-extrabold tracking-wider hover:opacity-80' onClick={playAgain}>play again</button></div>}
 
-        {showDraw && <div className='absolute top-52 right-14 flex flex-col gap-10 items-center'><h2 className='uppercase text-gray-100 text-6xl font-extrabold tracking-wide'>Draw</h2><button className='text-scoreText2 bg-gray-50 py-3 px-12 text-2xl uppercase rounded-xl font-extrabold tracking-wider hover:opacity-80' onClick={playAgain}>play again</button></div> 
+        {showDraw && <div className='absolute top-52 right-16 flex flex-col gap-10 items-center'><h2 className='uppercase text-gray-100 text-6xl font-extrabold tracking-wide'>Draw</h2><button className='text-scoreText2 bg-gray-50 py-3 px-12 text-2xl uppercase rounded-xl font-extrabold tracking-wider hover:opacity-80' onClick={playAgain}>play again</button></div> 
         }
         
       </div>

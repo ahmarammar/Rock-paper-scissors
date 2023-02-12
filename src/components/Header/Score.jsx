@@ -5,6 +5,7 @@ const Score = ({winner}) => {
   const [points, setPoints] = useState(0);
 
   useEffect(() => {
+    console.log(winner);
     if(winner !== ""){
       if(winner === "user"){
         setPoints(points+1);
@@ -13,7 +14,7 @@ const Score = ({winner}) => {
         setPoints(points-1);
       }
     }
-  }, [winner])
+  },[winner])
 
   return (
     <div className='bg-gray-200 rounded-lg p-2 w-24'>
