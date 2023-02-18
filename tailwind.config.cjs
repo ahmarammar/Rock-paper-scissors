@@ -20,10 +20,6 @@ module.exports = {
         "rockRing" : "hsl(349, 70%, 56%)",
       },
     },
-    screens: {
-      "mobile": '375px',
-      "desktop": '1366px'
-    }
   },
   plugins: [],
 }

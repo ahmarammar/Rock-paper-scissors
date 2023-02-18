@@ -11,7 +11,7 @@ const Rock = ({ handlePlay, setUserSelection }) => {
 
   return (
     <button onClick={selectRock}>
-      <img src={rock} alt="" className='absolute top-36 right-28 bg-white p-6 w-24 h-24 rounded-full ring-[1rem] ring-rockRing hover:scale-110 transition-transform' />
+      <img src={rock} alt="" className='absolute top-36 right-[66%] left-[34.7%] bg-white p-6 w-24 h-24 rounded-full ring-[1rem] ring-rockRing hover:scale-110 transition-transform' />
     </button>
   )
 }

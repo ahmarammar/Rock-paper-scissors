@@ -9,9 +9,9 @@ const RulesView = ({showRules}) => {
   }
 
   return (
-    <div className='min-h-screen bg-gray-50 p-12 flex items-center justify-center flex-col gap-48'>
+    <div className='min-h-screen bg-gray-50 md:p-12 p-9 flex items-center justify-center flex-col gap-48'>
       <h2 className='uppercase font-extrabold tracking-wide text-5xl'>rules</h2>
-      <img src={rules} alt="" className='h-72'/>
+      <img src={rules} alt="" className='h-64'/>
       <button onClick={handleRules}>
         <img src={close} alt="" className='hover:scale-110 transition-all'/>
       </button>
